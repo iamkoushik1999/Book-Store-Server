@@ -4,7 +4,10 @@ require("colors");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const app = express();
-const PORT = 8888;
+const PORT = process.env.PORT;
+// Database
+const connectDB = require("./config/database.js");
+connectDB();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
