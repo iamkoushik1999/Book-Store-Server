@@ -8,6 +8,8 @@ const PORT = process.env.PORT;
 // Database
 const connectDB = require("./config/database.js");
 connectDB();
+// Requires
+const errorHandler = require("./middleware/errorMiddleware.js");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -16,5 +18,8 @@ app.use(cors("*"));
 
 // Test Route
 app.get("/", (req, res) => res.send("Server Running Successfully!"));
+
+// Error Handler Middleware
+app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`.cyan));
