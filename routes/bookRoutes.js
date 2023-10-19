@@ -6,3 +6,5 @@ const { saveBooks } = require("../controllers/bookController");
 // POST
 // Saving Books
 router.route("/books").post(saveBooks);
+
+module.exports = router;

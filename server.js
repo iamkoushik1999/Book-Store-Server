@@ -11,6 +11,8 @@ connectDB();
 // Requires
 const errorHandler = require("./middleware/errorMiddleware.js");
 
+const bookRoutes = require("./routes/bookRoutes");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -18,6 +20,8 @@ app.use(cors("*"));
 
 // Test Route
 app.get("/", (req, res) => res.send("Server Running Successfully!"));
+
+app.use("/api/v1", bookRoutes);
 
 // Error Handler Middleware
 app.use(errorHandler);
