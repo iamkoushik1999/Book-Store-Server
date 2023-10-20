@@ -28,3 +28,18 @@ exports.saveBooks = asyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
+
+// GET
+// All Books
+exports.books = asyncHandler(async (req, res) => {
+  try {
+    const books = await bookModel.find();
+    res.status(200).json({
+      count: books.length,
+      data: books,
+    });
+  } catch (error) {
+    res.status(500);
+    throw new Error(error);
+  }
+});
