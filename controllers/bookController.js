@@ -43,3 +43,21 @@ exports.books = asyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
+
+// GET
+// Book Details by id
+exports.bookDetails = asyncHandler(async (req, res) => {
+  try {
+    const { id } = req.params;
+    const book = await bookModel.findById(id);
+    if (!book) {
+      res.status(404);
+      throw new Error("Book not found");
+    }
+
+    res.status(200).json(book);
+  } catch (error) {
+    res.status(500);
+    throw new Error(error);
+  }
+});

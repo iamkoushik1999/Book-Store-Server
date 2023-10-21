@@ -1,5 +1,9 @@
 const router = require("express").Router();
-const { saveBooks, books } = require("../controllers/bookController");
+const {
+  saveBooks,
+  books,
+  bookDetails,
+} = require("../controllers/bookController");
 
 // ----------------------------------------------------------- Book Store Routes -----------------------------------------------------------
 
@@ -10,5 +14,9 @@ router.route("/books").post(saveBooks);
 // GET
 // All Books
 router.route("/books").get(books);
+
+// GET
+// Book Details
+router.route("/book/:id").get(bookDetails);
 
 module.exports = router;
