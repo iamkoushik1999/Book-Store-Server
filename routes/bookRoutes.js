@@ -4,6 +4,7 @@ const {
   books,
   bookDetails,
   updateBook,
+  deleteBook,
 } = require("../controllers/bookController");
 
 // ----------------------------------------------------------- Book Store Routes -----------------------------------------------------------
@@ -23,5 +24,9 @@ router.route("/book/:id").get(bookDetails);
 // PUT
 // UPDATE BOOK
 router.route("/book/:id").put(updateBook);
+
+// DELETE
+// DELETE BOOK
+router.route("/book/:id").delete(deleteBook);
 
 module.exports = router;

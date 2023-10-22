@@ -85,3 +85,22 @@ exports.updateBook = asyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
+
+// DELETE
+// Delete Book
+exports.deleteBook = asyncHandler(async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const result = await bookModel.findByIdAndDelete(id);
+    if (!result) {
+      res.status(404);
+      throw new Error("Book not found");
+    }
+
+    res.status(200).json({ message: "Book deleted successfully" });
+  } catch (error) {
+    res.status(500);
+    throw new Error(error);
+  }
+});
