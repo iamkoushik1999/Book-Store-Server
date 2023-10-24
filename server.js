@@ -21,6 +21,7 @@ app.use(cors("*"));
 // Test Route
 app.get("/", (req, res) => res.send("Server Running Successfully!"));
 
+// Book Routes
 app.use("/api/v1", bookRoutes);
 
 // Error Handler Middleware
